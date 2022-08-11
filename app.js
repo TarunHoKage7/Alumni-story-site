@@ -18,7 +18,11 @@ if(process.env.NODE_ENV === 'development'){
 
 
 //handlebars
-app.engine('.hbs', exphbs.engine({defaultLayout: 'main', extname: '.hbs'}));
+app.engine('.hbs', exphbs.engine({
+        defaultLayout: 'main', 
+        extname: '.hbs'
+    })
+);
 app.set('view engine', ".hbs")
 
 
