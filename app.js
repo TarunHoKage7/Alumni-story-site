@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const exphbs = require('express-handlebars')
 const path = require('path')
 const passport = require('passport')
+const MongoStore = require('connect-mongo')
 const session = require('express-session')
 
 //load config
@@ -37,6 +38,9 @@ app.use(
         secret: 'keyboard cat',
         resave: false,
         saveUninitialized: false,
+        store: MongoStore.create({
+            mongoUrl: process.env.MONGO_URI
+        })
         //cookie: { secure: true }//requires https
     })
 )
